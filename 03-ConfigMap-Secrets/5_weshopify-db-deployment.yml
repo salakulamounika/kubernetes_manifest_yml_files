@@ -22,13 +22,13 @@ spec:
        volumeMounts:
          - name: weshpify-app-db-volume
            mountPath: /opt/mysql
-       env: 
+       env:    # represents env properties that we want to give container in run time
         - name: MYSQL_ROOT_PASSWORD
           #value: root
           valueFrom: 
            secretKeyRef: 
-            name: weshopify-db-config-secrete
-            key: DB_PASSWORD_VALUE
+            name: weshopify-db-config-secrete  #name of the secret
+            key: DB_PASSWORD_VALUE   #key details
         - name: MYSQL_DATABASE
           #value: weshopify-app
           valueFrom: 
